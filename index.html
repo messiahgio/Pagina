@@ -1,32 +1,576 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Dashboards Power BI - Transforma tus Datos en Decisiones</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Poppins', sans-serif; }
-        .tech-gradient { background: linear-gradient(90deg, #0A2A66 0%, #00B09B 100%); }
-        .cta-button { background-color: #E60073; transition: background-color 0.3s ease, transform 0.3s ease; }
-        .cta-button:hover { background-color: #c40062; transform: translateY(-2px); }
-        .faq-question.active + .faq-answer { max-height: 300px; padding-top: 1rem; padding-bottom: 1rem; }
-        .faq-question .arrow { transition: transform 0.3s ease; }
-        .faq-question.active .arrow { transform: rotate(180deg); }
-    </style>
-</head>
-<body class="bg-white text-[#333333]">
-    <!-- Contenido omitido por longitud, pero estará en el archivo -->
-    <!-- Simulación de contenido para mantener el ejemplo funcional -->
+<!-- 
+  INSTRUCCIONES PARA BLOGGER:
+  1. Ve a tu panel de Blogger y crea una nueva "Página" o "Entrada".
+  2. En la barra de herramientas del editor, haz clic en el icono (<>) y selecciona "Vista de HTML".
+  3. Borra cualquier contenido que haya en el editor.
+  4. Copia TODO el código de este recuadro.
+  5. Pega el código en la Vista de HTML de Blogger.
+  6. ¡Listo! Puedes volver a la "Vista de redacción" para cambiar textos e imágenes.
+-->
+
+<!-- ===== INICIO DEL CÓDIGO PARA BLOGGER (VERSIÓN FINAL COMPATIBLE) ===== -->
+
+<!-- Estilos CSS (Adaptados para Blogger) -->
+<style type="text/css">
+    /* Configuración Base y Tipografía */
+    .main-container {
+        font-family: 'Poppins', sans-serif;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .main-container a {
+        color: inherit;
+        text-decoration: inherit;
+    }
+    
+    /* Paleta de Colores */
+    .color-primary { color: #0A2A66; }
+    .color-accent { color: #00B09B; }
+    .color-cta { color: #E60073; }
+    .bg-primary { background-color: #0A2A66; }
+    .bg-secondary { background-color: #F0F4F8; }
+    .bg-accent { background-color: #00B09B; }
+    .tech-gradient { background: linear-gradient(90deg, #0A2A66 0%, #00B09B 100%); }
+
+    /* Contenedor Principal */
+    .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    @media (min-width: 640px) { .container { max-width: 640px; } }
+    @media (min-width: 768px) { .container { max-width: 768px; } }
+    @media (min-width: 1024px) { .container { max-width: 1024px; } }
+    @media (min-width: 1280px) { .container { max-width: 1280px; } }
+
+    /* Header */
+    .header {
+        background-color: #0A2A66;
+        color: white;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+    .header-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+    }
+    .header-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    .header-links {
+        display: none;
+    }
+    @media (min-width: 768px) {
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+    }
+    .header-links a:hover {
+        color: #00B09B;
+        transition: color 0.3s;
+    }
+    .header-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    @media (min-width: 768px) {
+        .header-menu-btn {
+            display: none;
+        }
+    }
+    #mobile-menu {
+        display: none;
+        background-color: #0A2A66;
+    }
+    #mobile-menu.active {
+        display: block;
+    }
+
+    /* Botones */
+    .cta-button {
+        display: inline-block;
+        background-color: #E60073;
+        color: white;
+        font-weight: 700;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        font-size: 1.125rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #c40062;
+        transform: translateY(-2px);
+    }
+    
+    /* Secciones */
+    .section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+    .section-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #0A2A66;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .section-subtitle {
+        color: #4a5568;
+        margin-top: -2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+    
+    /* Hero Section */
+    .hero-grid {
+        display: grid;
+        gap: 3rem;
+        align-items: center;
+    }
+    @media (min-width: 768px) {
+        .hero-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        font-weight: 700;
+    }
+    @media (min-width: 768px) {
+        .hero-title { font-size: 3.75rem; }
+    }
+    .hero-text {
+        margin-top: 1rem;
+        font-size: 1.125rem;
+        color: #e2e8f0;
+    }
+    .hero-image {
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        max-width: 100%;
+        height: auto;
+    }
+    /* Clases de utilidad para reemplazar estilos en línea con @media */
+    .hero-text-container {
+        text-align: center;
+    }
+    @media (min-width: 768px) {
+        .hero-text-container {
+            text-align: left;
+        }
+    }
+    .hero-image-container {
+        display: none;
+    }
+    @media (min-width: 768px) {
+        .hero-image-container {
+            display: block;
+        }
+    }
+
+
+    /* Grid y Cards */
+    .benefits-grid, .portfolio-grid, .testimonials-grid {
+        display: grid;
+        gap: 2rem;
+    }
+    @media (min-width: 768px) {
+        .benefits-grid { grid-template-columns: repeat(3, 1fr); }
+        .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+        .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .card-icon-wrapper {
+        background-color: #00B09B;
+        border-radius: 9999px;
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+    }
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    .portfolio-card {
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .portfolio-card img {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+    .portfolio-card:hover img {
+        transform: scale(1.05);
+    }
+    .portfolio-card-content {
+        padding: 1.5rem;
+    }
+
+    /* FAQ */
+    .faq-item {
+        border: 1px solid #e2e8f0;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    .faq-question {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 1rem;
+        font-weight: 600;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .faq-question .arrow {
+        transition: transform 0.3s ease;
+    }
+    .faq-question.active .arrow {
+        transform: rotate(180deg);
+    }
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .faq-answer p {
+        color: #4a5568;
+        padding-bottom: 1rem;
+    }
+
+    /* Formulario */
+    .form-input, .form-textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+    }
+    .form-input:focus, .form-textarea:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #00B09B;
+    }
+    
+    /* Footer */
+    .footer {
+        background-color: #0A2A66;
+        color: white;
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+</style>
+
+<!-- Google Fonts (Etiquetas corregidas para XML) -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+
+<div class="main-container">
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="container header-nav">
+            <a href="#" class="header-logo">DataDriven<span class="color-accent">Insights</span></a>
+            <div class="header-links">
+                <a href="#beneficios">Beneficios</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contacto" style="background-color: #00B09B; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem;">Contactar</a>
+            </div>
+            <div class="header-menu-btn">
+                <button id="menu-btn">
+                    <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu">
+            <a href="#beneficios" style="display: block; padding: 0.75rem 1.5rem; color: white;">Beneficios</a>
+            <a href="#proyectos" style="display: block; padding: 0.75rem 1.5rem; color: white;">Proyectos</a>
+            <a href="#testimonios" style="display: block; padding: 0.75rem 1.5rem; color: white;">Testimonios</a>
+            <a href="#faq" style="display: block; padding: 0.75rem 1.5rem; color: white;">FAQ</a>
+            <a href="#contacto" style="display: block; padding: 1rem 1.5rem; background-color: #00B09B; text-align: center; color: white;">Contactar</a>
+        </div>
+    </header>
+
     <main>
-        <section class="tech-gradient text-white p-10 text-center">
-            <h1 class="text-4xl font-bold">Transforma tus Datos en Decisiones Estratégicas</h1>
-            <p class="mt-4 text-lg">Este es un ejemplo del contenido completo que vos generaste.</p>
-            <a href="#proyectos" class="cta-button inline-block mt-6 px-6 py-3 rounded text-white font-semibold">Ver Portafolio</a>
+        <!-- ===== Hero Section ===== -->
+        <section class="tech-gradient" style="color: white; padding: 5rem 0;">
+            <div class="container hero-grid">
+                <div class="hero-text-container">
+                    <h1 class="hero-title">Transforma tus Datos en Decisiones Estratégicas</h1>
+                    <p class="hero-text">Diseño dashboards en Power BI que automatizan tus reportes, clarifican tus KPIs y te devuelven el control de tu operación.</p>
+                    <a href="#proyectos" class="cta-button">Ver Portafolio de Proyectos</a>
+                </div>
+                <div class="hero-image-container">
+                    <img src="https://placehold.co/600x400/F0F4F8/0A2A66?text=Dashboard+Ejemplo" alt="Imagen de un dashboard de Power BI" class="hero-image"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Beneficios Section ===== -->
+        <section id="beneficios" class="section bg-secondary">
+            <div class="container">
+                <h2 class="section-title">Inteligencia de Negocios a tu Alcance</h2>
+                <p class="section-subtitle">Más que reportes, te entrego herramientas para la acción.</p>
+                <div class="benefits-grid">
+                    <!-- Beneficio 1 -->
+                    <div class="card">
+                        <div class="card-icon-wrapper">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="card-title">Ahorro Radical de Tiempo</h3>
+                        <p style="color: #4a5568;">Elimina la carga de reportes manuales. Tus datos se actualizan automáticamente, liberando a tu equipo para analizar y actuar.</p>
+                    </div>
+                    <!-- Beneficio 2 -->
+                    <div class="card">
+                        <div class="card-icon-wrapper">
+                           <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="card-title">Decisiones Basadas en Datos</h3>
+                        <p style="color: #4a5568;">Deja de depender de la intuición. Obtén una visión clara y objetiva de tus indicadores clave para tomar decisiones con confianza.</p>
+                    </div>
+                    <!-- Beneficio 3 -->
+                    <div class="card">
+                        <div class="card-icon-wrapper">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                        <h3 class="card-title">Visualización Clara y Efectiva</h3>
+                        <p style="color: #4a5568;">Convierto hojas de cálculo complejas en gráficos interactivos y fáciles de entender. La información que necesitas, de un solo vistazo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Casos de Uso / Portafolio Section ===== -->
+        <section id="proyectos" class="section">
+            <div class="container">
+                <h2 class="section-title">Proyectos Destacados</h2>
+                <p class="section-subtitle">Ejemplos reales del impacto de la inteligencia de negocios.</p>
+                <div class="portfolio-grid">
+                    <!-- Proyecto 1 -->
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/400x250/0A2A66/FFFFFF?text=Control+de+Cámaras" alt="Proyecto Control de Cámaras"/>
+                        <div class="portfolio-card-content">
+                            <h3 class="card-title" style="text-align:left;">Control de Cámaras y Seguridad</h3>
+                            <p style="color: #4a5568; margin-top: 0.5rem; text-align:left;">Dashboard para monitorear el estado de cámaras de seguridad y registrar incidentes en tiempo real.</p>
+                        </div>
+                    </div>
+                    <!-- Proyecto 2 -->
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/400x250/00B09B/FFFFFF?text=Ranking+de+Operarios" alt="Proyecto Ranking de Operarios"/>
+                        <div class="portfolio-card-content">
+                            <h3 class="card-title" style="text-align:left;">Ranking de Desempeño de Operarios</h3>
+                            <p style="color: #4a5568; margin-top: 0.5rem; text-align:left;">Análisis de productividad individual y por equipo para identificar oportunidades de mejora.</p>
+                        </div>
+                    </div>
+                    <!-- Proyecto 3 -->
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/400x250/333333/FFFFFF?text=Incidentes+por+UG" alt="Proyecto Incidentes por UG"/>
+                        <div class="portfolio-card-content">
+                            <h3 class="card-title" style="text-align:left;">Análisis de Incidentes por Unidad de Gestión</h3>
+                            <p style="color: #4a5568; margin-top: 0.5rem; text-align:left;">Tablero geolocalizado para visualizar tendencias y optimizar la asignación de recursos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA Section ===== -->
+        <section class="tech-gradient" style="padding: 5rem 0;">
+            <div class="container" style="text-align: center; color: white;">
+                <h2 style="font-size: 2.25rem; font-weight: 700;">¿Listo para potenciar tu gestión?</h2>
+                <p style="margin-top: 1rem; font-size: 1.125rem; max-width: 42rem; margin-left: auto; margin-right: auto;">Hablemos sobre tus necesidades. Puedo crear una demostración con tus propios datos para que veas el potencial de primera mano.</p>
+                <a href="#contacto" class="cta-button">Solicitar Propuesta</a>
+            </div>
+        </section>
+
+        <!-- ===== Testimonios Section ===== -->
+        <section id="testimonios" class="section bg-secondary">
+            <div class="container">
+                <h2 class="section-title">Lo que dicen mis clientes</h2>
+                <div class="testimonials-grid" style="max-width: 56rem; margin-left: auto; margin-right: auto; margin-top: 3rem;">
+                    <div class="card" style="text-align: left;">
+                        <p style="color: #4a5568; font-style: italic;">"El dashboard de logística nos ahorró incontables horas. Ahora vemos los cuellos de botella en segundos, algo que antes nos tomaba días de cruzar planillas de Excel."</p>
+                        <div style="margin-top: 1rem;">
+                            <p style="font-weight: 700;">Gerente de Operaciones</p>
+                            <p style="font-size: 0.875rem; color: #6b7280;">Empresa de Distribución</p>
+                        </div>
+                    </div>
+                    <div class="card" style="text-align: left;">
+                        <p style="color: #4a5568; font-style: italic;">"Tener los datos de ventas actualizados al minuto y en el celular cambió las reglas del juego para nuestro equipo comercial. Las reuniones ahora son mucho más productivas."</p>
+                        <div style="margin-top: 1rem;">
+                            <p style="font-weight: 700;">Supervisor de Ventas</p>
+                            <p style="font-size: 0.875rem; color: #6b7280;">Compañía de Consumo Masivo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ Section ===== -->
+        <section id="faq" class="section">
+            <div class="container" style="max-width: 48rem; margin-left: auto; margin-right: auto;">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <div>
+                    <!-- Pregunta 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Necesito tener una licencia de Power BI?</span>
+                            <span class="arrow">
+                                <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No necesariamente. Para visualizar los reportes, puedes usar una cuenta gratuita de Power BI. Para compartir y colaborar a nivel empresarial, se recomienda una licencia Pro, pero puedo asesorarte sobre la mejor opción para tu caso.</p>
+                        </div>
+                    </div>
+                    <!-- Pregunta 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Se puede conectar a mis archivos de Excel?</span>
+                             <span class="arrow">
+                                <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>¡Absolutamente! Power BI se integra de forma nativa con Excel, así como con cientos de otras fuentes de datos: bases de datos SQL, servicios en la nube (Google Analytics, Salesforce), archivos CSV, carpetas de SharePoint y mucho más.</p>
+                        </div>
+                    </div>
+                     <!-- Pregunta 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Cuánto tiempo toma desarrollar un tablero?</span>
+                             <span class="arrow">
+                                <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Depende de la complejidad y la calidad de las fuentes de datos. Un dashboard inicial puede estar listo en una o dos semanas. El proceso incluye relevamiento, limpieza de datos (ETL), diseño del modelo, creación de visualizaciones y validación con el usuario.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contacto Section ===== -->
+        <section id="contacto" class="section bg-secondary">
+            <div class="container">
+                <h2 class="section-title">Hablemos</h2>
+                <p class="section-subtitle">Completa el formulario o contáctame directamente. Estoy para ayudarte.</p>
+                <div style="max-width: 42rem; margin-left: auto; margin-right: auto; background-color: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); margin-top: 3rem;">
+                    <form>
+                        <div style="margin-bottom: 1rem;">
+                            <label for="name" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Nombre</label>
+                            <input type="text" id="name" name="name" class="form-input"/>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label for="email" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email</label>
+                            <input type="email" id="email" name="email" class="form-input"/>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="message" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">¿En qué puedo ayudarte?</label>
+                            <textarea id="message" name="message" rows="4" class="form-textarea"></textarea>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="cta-button" style="width: 100%; margin-top: 0;">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <p style="color: #4a5568;">O si prefieres, contáctame por:</p>
+                        <a href="https://wa.me/TUNUMERO" target="_blank" style="display: inline-block; margin-top: 0.5rem; font-weight: 600; color: #00B09B; text-decoration: underline;">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-</body>
-</html>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <p>&copy; 2024 DataDriven Insights. Todos los derechos reservados.</p>
+        <p style="font-size: 0.875rem; color: #9ca3af; margin-top: 0.5rem;">Diseño y desarrollo de dashboards para una gestión inteligente.</p>
+    </footer>
+
+</div>
+
+<!-- Scripts (Deben ir al final para que funcionen en Blogger) -->
+<script type="text/javascript">
+//<![CDATA[
+    // Script para el menú móvil
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+    }
+
+    // Script para el acordeón de FAQ
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const currentlyActive = document.querySelector('.faq-question.active');
+            if (currentlyActive && currentlyActive !== question) {
+                currentlyActive.classList.remove('active');
+                const otherAnswer = currentlyActive.nextElementSibling;
+                if (otherAnswer) {
+                    otherAnswer.style.maxHeight = null;
+                    otherAnswer.style.padding = '0 1rem';
+                }
+            }
+
+            question.classList.toggle('active');
+            const answer = question.nextElementSibling;
+            if (answer) {
+                if (question.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    answer.style.padding = '0 1rem 1rem 1rem';
+                } else {
+                    answer.style.maxHeight = null;
+                    answer.style.padding = '0 1rem';
+                }
+            }
+        });
+    });
+//]]>
+</script>
+
+<!-- ===== FIN DEL CÓDIGO PARA BLOGGER ===== -->

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Dashboards Power BI - Transforma tus Datos en Decisiones</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Aplicar la tipografía Poppins como fuente principal */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Estilos para el gradiente del Hero y otros elementos */
+        .tech-gradient {
+            background: linear-gradient(90deg, #0A2A66 0%, #00B09B 100%);
+        }
+        
+        .cta-button {
+            background-color: #E60073; /* Magenta de Acción */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #c40062;
+            transform: translateY(-2px);
+        }
+        
+        /* Estilo para el acordeón de FAQ */
+        .faq-question.active + .faq-answer {
+            max-height: 300px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .faq-question .arrow {
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active .arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-white text-[#333333]">
+
+    <!-- ===== Header ===== -->
+    <header class="bg-[#0A2A66] text-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">DataDriven<span class="text-[#00B09B]">Insights</span></a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#beneficios" class="hover:text-[#00B09B] transition-colors">Beneficios</a>
+                <a href="#proyectos" class="hover:text-[#00B09B] transition-colors">Proyectos</a>
+                <a href="#testimonios" class="hover:text-[#00B09B] transition-colors">Testimonios</a>
+                <a href="#faq" class="hover:text-[#00B09B] transition-colors">FAQ</a>
+                <a href="#contacto" class="bg-[#00B09B] text-white px-4 py-2 rounded-md hover:bg-[#009a86] transition-colors">Contactar</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#beneficios" class="block py-2 px-4 text-sm hover:bg-[#0A2A66]">Beneficios</a>
+            <a href="#proyectos" class="block py-2 px-4 text-sm hover:bg-[#0A2A66]">Proyectos</a>
+            <a href="#testimonios" class="block py-2 px-4 text-sm hover:bg-[#0A2A66]">Testimonios</a>
+            <a href="#faq" class="block py-2 px-4 text-sm hover:bg-[#0A2A66]">FAQ</a>
+            <a href="#contacto" class="block py-2 px-4 text-sm bg-[#00B09B] text-center">Contactar</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== Hero Section ===== -->
+        <section class="tech-gradient text-white">
+            <div class="container mx-auto px-6 py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight">Transforma tus Datos en Decisiones Estratégicas</h1>
+                    <p class="mt-4 text-lg md:text-xl text-gray-200">Diseño dashboards en Power BI que automatizan tus reportes, clarifican tus KPIs y te devuelven el control de tu operación.</p>
+                    <a href="#proyectos" class="cta-button inline-block text-white font-bold px-8 py-4 rounded-lg mt-8 text-lg">Ver Portafolio de Proyectos</a>
+                </div>
+                <div class="hidden md:block">
+                    <img src="https://placehold.co/600x400/F0F4F8/0A2A66?text=Dashboard+Ejemplo" alt="Imagen de un dashboard de Power BI" class="rounded-lg shadow-2xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Beneficios Section ===== -->
+        <section id="beneficios" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A2A66]">Inteligencia de Negocios a tu Alcance</h2>
+                    <p class="text-gray-600 mt-2">Más que reportes, te entrego herramientas para la acción.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Beneficio 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="bg-[#00B09B] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Ahorro Radical de Tiempo</h3>
+                        <p class="text-gray-600">Elimina la carga de reportes manuales. Tus datos se actualizan automáticamente, liberando a tu equipo para analizar y actuar.</p>
+                    </div>
+                    <!-- Beneficio 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="bg-[#00B09B] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                           <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Decisiones Basadas en Datos</h3>
+                        <p class="text-gray-600">Deja de depender de la intuición. Obtén una visión clara y objetiva de tus indicadores clave para tomar decisiones con confianza.</p>
+                    </div>
+                    <!-- Beneficio 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="bg-[#00B09B] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Visualización Clara y Efectiva</h3>
+                        <p class="text-gray-600">Convierto hojas de cálculo complejas en gráficos interactivos y fáciles de entender. La información que necesitas, de un solo vistazo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Áreas y Dashboards Section ===== -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A2A66]">Soluciones para Múltiples Áreas</h2>
+                    <p class="text-gray-600 mt-2">Dashboards personalizados para los desafíos específicos de tu negocio.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+                    <div class="p-4"><h3 class="font-semibold text-lg">Seguridad</h3><p class="text-sm text-gray-500">Control de incidentes</p></div>
+                    <div class="p-4"><h3 class="font-semibold text-lg">Logística</h3><p class="text-sm text-gray-500">Trazabilidad y entregas</p></div>
+                    <div class="p-4"><h3 class="font-semibold text-lg">Ventas</h3><p class="text-sm text-gray-500">Rendimiento y comisiones</p></div>
+                    <div class="p-4"><h3 class="font-semibold text-lg">RR.HH.</h3><p class="text-sm text-gray-500">Análisis de desempeño</p></div>
+                    <div class="p-4"><h3 class="font-semibold text-lg">Finanzas</h3><p class="text-sm text-gray-500">Flujo de caja y costos</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Herramientas Section ===== -->
+        <section class="bg-[#F0F4F8] py-20">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A2A66]">Mi Stack Tecnológico</h2>
+                    <p class="text-gray-600 mt-2">Utilizo las mejores herramientas para garantizar resultados robustos y escalables.</p>
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                    <div class="text-center p-4 bg-white rounded-lg shadow-md w-40">
+                        <h4 class="font-bold text-lg">Power BI</h4>
+                        <p class="text-sm text-gray-500">Visualización</p>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-lg shadow-md w-40">
+                        <h4 class="font-bold text-lg">Power Query</h4>
+                        <p class="text-sm text-gray-500">ETL de Datos</p>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-lg shadow-md w-40">
+                        <h4 class="font-bold text-lg">Excel Avanzado</h4>
+                        <p class="text-sm text-gray-500">Análisis y Modelado</p>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-lg shadow-md w-40">
+                        <h4 class="font-bold text-lg">Power Automate</h4>
+                        <p class="text-sm text-gray-500">Automatización</p>
+                    </div>
+                     <div class="text-center p-4 bg-white rounded-lg shadow-md w-40">
+                        <h4 class="font-bold text-lg">Diseño UI/UX</h4>
+                        <p class="text-sm text-gray-500">Experiencia de Usuario</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Casos de Uso / Portafolio Section ===== -->
+        <section id="proyectos" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A2A66]">Proyectos Destacados</h2>
+                    <p class="text-gray-600 mt-2">Ejemplos reales del impacto de la inteligencia de negocios.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Proyecto 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="https://placehold.co/400x250/0A2A66/FFFFFF?text=Control+de+Cámaras" alt="Proyecto Control de Cámaras" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Control de Cámaras y Seguridad</h3>
+                            <p class="text-gray-600 mt-2">Dashboard para monitorear el estado de cámaras de seguridad y registrar incidentes en tiempo real.</p>
+                        </div>
+                    </div>
+                    <!-- Proyecto 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="https://placehold.co/400x250/00B09B/FFFFFF?text=Ranking+de+Operarios" alt="Proyecto Ranking de Operarios" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Ranking de Desempeño de Operarios</h3>
+                            <p class="text-gray-600 mt-2">Análisis de productividad individual y por equipo para identificar oportunidades de mejora y reconocer el buen desempeño.</p>
+                        </div>
+                    </div>
+                    <!-- Proyecto 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="https://placehold.co/400x250/333333/FFFFFF?text=Incidentes+por+UG" alt="Proyecto Incidentes por UG" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Análisis de Incidentes por Unidad de Gestión</h3>
+                            <p class="text-gray-600 mt-2">Tablero geolocalizado para visualizar tendencias de incidentes y optimizar la asignación de recursos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA Section ===== -->
+        <section class="tech-gradient">
+            <div class="container mx-auto px-6 py-20 text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold">¿Listo para potenciar tu gestión?</h2>
+                <p class="mt-4 text-lg max-w-2xl mx-auto">Hablemos sobre tus necesidades. Puedo crear una demostración con tus propios datos para que veas el potencial de primera mano.</p>
+                <a href="#contacto" class="cta-button inline-block bg-[#E60073] text-white font-bold px-8 py-4 rounded-lg mt-8 text-lg">Solicitar Propuesta</a>
+            </div>
+        </section>
+
+        <!-- ===== Testimonios Section ===== -->
+        <section id="testimonios" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A2A66]">Lo que dicen mis clientes</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <p class="text-gray-600 italic">"El dashboard de logística nos ahorró incontables horas. Ahora vemos los cuellos de botella en segundos, algo que antes nos tomaba días de cruzar planillas de Excel."</p>
+                        <div class="mt-4">
+                            <p class="font-bold">Gerente de Operaciones</p>
+                            <p class="text-sm text-gray-500">Empresa de Distribución</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <p class="text-gray-600 italic">"Tener los datos de ventas actualizados al minuto y en el celular cambió las reglas del juego para nuestro equipo comercial. Las reuniones ahora son mucho más productivas."</p>
+                        <div class="mt-4">
+                            <p class="font-bold">Supervisor de Ventas</p>
+                            <p class="text-sm text-gray-500">Compañía de Consumo Masivo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ Section ===== -->
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A2A66]">Preguntas Frecuentes</h2>
+                </div>
+                <div class="space-y-4">
+                    <!-- Pregunta 1 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-4 font-semibold focus:outline-none">
+                            <span>¿Necesito tener una licencia de Power BI?</span>
+                            <span class="arrow">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4">
+                            <p class="text-gray-600">No necesariamente. Para visualizar los reportes, puedes usar una cuenta gratuita de Power BI. Para compartir y colaborar a nivel empresarial, se recomienda una licencia Pro, pero puedo asesorarte sobre la mejor opción para tu caso.</p>
+                        </div>
+                    </div>
+                    <!-- Pregunta 2 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-4 font-semibold focus:outline-none">
+                            <span>¿Se puede conectar a mis archivos de Excel?</span>
+                             <span class="arrow">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4">
+                            <p class="text-gray-600">¡Absolutamente! Power BI se integra de forma nativa con Excel, así como con cientos de otras fuentes de datos: bases de datos SQL, servicios en la nube (Google Analytics, Salesforce), archivos CSV, carpetas de SharePoint y mucho más.</p>
+                        </div>
+                    </div>
+                     <!-- Pregunta 3 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-4 font-semibold focus:outline-none">
+                            <span>¿Cuánto tiempo toma desarrollar un tablero?</span>
+                             <span class="arrow">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4">
+                            <p class="text-gray-600">Depende de la complejidad y la calidad de las fuentes de datos. Un dashboard inicial puede estar listo en una o dos semanas. El proceso incluye relevamiento, limpieza de datos (ETL), diseño del modelo, creación de visualizaciones y validación con el usuario.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contacto Section ===== -->
+        <section id="contacto" class="bg-[#F0F4F8] py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A2A66]">Hablemos</h2>
+                    <p class="text-gray-600 mt-2">Completa el formulario o contáctame directamente. Estoy para ayudarte.</p>
+                </div>
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">Nombre</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B09B]">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B09B]">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">¿En qué puedo ayudarte?</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B09B]"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="cta-button w-full text-white font-bold px-8 py-3 rounded-lg text-lg">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-6">
+                        <p class="text-gray-600">O si prefieres, contáctame por:</p>
+                        <a href="https://wa.me/TUNUMERO" target="_blank" class="inline-block mt-2 font-semibold text-[#00B09B] hover:underline">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-[#0A2A66] text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 DataDriven Insights. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Diseño y desarrollo de dashboards para una gestión inteligente.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Script para el acordeón de FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                // Cierra todas las demás respuestas
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        otherQuestion.classList.remove('active');
+                        otherQuestion.nextElementSibling.style.maxHeight = null;
+                        otherQuestion.nextElementSibling.style.paddingTop = '0';
+                        otherQuestion.nextElementSibling.style.paddingBottom = '0';
+                    }
+                });
+
+                // Abre o cierra la respuesta actual
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                if (question.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    answer.style.paddingTop = '1rem';
+                    answer.style.paddingBottom = '1rem';
+                } else {
+                    answer.style.maxHeight = null;
+                    answer.style.paddingTop = '0';
+                    answer.style.paddingBottom = '0';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
